@@ -1,11 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import "base/*";
+
 @import "categories";
 @import "photos";
 @import "products";
 
-@import "custom";
 @import "profiles";
 
 @import "shopping_carts";
