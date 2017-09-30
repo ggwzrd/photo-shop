@@ -11,17 +11,17 @@ default: &default
 
 development:
   <<: *default
-  database: codaisseur-shop_development
+  database: photo-shop_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: codaisseur-shop_test
+  database: photo-shop_test
 
 production:
   <<: *default
-  database: codaisseur-shop_production
-  username: codaisseur-shop
-  password: <%= ENV['CODAISSEURBNB_DATABASE_PASSWORD'] %>
+  database: photo-shop_production
+  username: photo-shop
+  password: <%= ENV['PHOTO_SHOP_DATABASE_PASSWORD'] %>

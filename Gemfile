@@ -2,7 +2,11 @@ source 'https://rubygems.org'
 #
 
 #leave this here for deis please
-ruby '2.3.1'
+ruby '2.2.5'
+# @NB gem used to encode and decode OAuth Token
+gem 'jwt'
+# helper between models and controllers used to authenticate users
+gem 'simple_command'
 
 # Use rspec
 group :development, :test do
