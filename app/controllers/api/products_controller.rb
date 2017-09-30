@@ -1,7 +1,18 @@
 class Api::ProductsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   before_action :authenticate_request
 
   attr_reader :current_user
+
+  def index
+    @products = Product.all
+    if @products.length > 0
+      render json: { products: @products }
+    else
+      render json: { products: "No product available at the moment" }
+    end
+  end
 
   private
 
