@@ -12,7 +12,11 @@ module PhotoShop
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths << Rails.root.join('lib')
-	console do
+
+    # Load PayPal configuration
+    PayPal::SDK::Core::Config.load('config/paypal.yml',  ENV['RACK_ENV'] || 'development')
+
+	  console do
       ActiveRecord::Base.connection
     end
   end

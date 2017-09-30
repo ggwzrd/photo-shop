@@ -74,6 +74,7 @@ function addItem(event){
   amount = parseInt($('#amount').val());
   addToCart(itemId, amount);
 }
+
 function updateCart(item){
   if(item){
     $('#line-empty').remove();

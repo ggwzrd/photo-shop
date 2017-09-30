@@ -1,6 +1,6 @@
-class User < ApplicationRecord  
+class User < ApplicationRecord
   has_many :products
-  has_many :orders
+  has_many :purchases
   has_one :profile
 
   # Include default devise modules. Others available are:

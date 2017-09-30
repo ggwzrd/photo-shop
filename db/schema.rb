@@ -31,22 +31,12 @@ ActiveRecord::Schema.define(version: 20161018132622) do
   create_table "line_items", force: :cascade do |t|
     t.integer  "amount"
     t.integer  "product_id"
-    t.integer  "order_id"
+    t.integer  "purchase_id"
     t.decimal  "line_price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_line_items_on_order_id", using: :btree
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["product_id"], name: "index_line_items_on_product_id", using: :btree
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.integer  "order_number"
-    t.string   "payment_method"
-    t.decimal  "total_price"
-    t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+    t.index ["purchase_id"], name: "index_line_items_on_purchase_id", using: :btree
   end
 
   create_table "photos", force: :cascade do |t|
@@ -78,6 +68,16 @@ ActiveRecord::Schema.define(version: 20161018132622) do
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
+  create_table "purchases", force: :cascade do |t|
+    t.integer  "purchase_number"
+    t.string   "payment_method"
+    t.decimal  "total_price"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["user_id"], name: "index_purchases_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -97,10 +97,10 @@ ActiveRecord::Schema.define(version: 20161018132622) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
-  add_foreign_key "orders", "users"
+  add_foreign_key "line_items", "purchases"
   add_foreign_key "photos", "products"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "purchases", "users"
 end

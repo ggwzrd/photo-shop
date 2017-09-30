@@ -1,14 +1,14 @@
 <ul class="event-list">
-    <% @profile.user.orders.each do |order| %>
-      <% order.line_items.each do |line_item| %>
+    <% @profile.user.purchases.each do |purchase| %>
+      <% purchase.line_items.each do |line_item| %>
         <% product = Product.where(id: line_item.product.id).first %>
           <% if product %>
           <li>
-              <time datetime="<%= order.created_at %>" class="<%=product.categories[0].name.downcase %>">
-                  <span class="day"><%= order.created_at.day %></span>
-                  <span class="month"><%= order.created_at.strftime('%b') %></span>
-                  <span class="year">order.created_at.year</span>
-                  <span class="time">order.created_at.time</span>
+              <time datetime="<%= purchase.created_at %>" class="<%=product.categories[0].name.downcase %>">
+                  <span class="day"><%= purchase.created_at.day %></span>
+                  <span class="month"><%= purchase.created_at.strftime('%b') %></span>
+                  <span class="year">purchase.created_at.year</span>
+                  <span class="time">purchase.created_at.time</span>
               </time>
               <img alt="<%= product.name %>" src="<%= product.photos[0].image %>"/>
               <div class="info">
