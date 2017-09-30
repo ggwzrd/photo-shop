@@ -2,7 +2,13 @@ source 'https://rubygems.org'
 #
 
 #leave this here for deis please
-ruby '2.3.1'
+ruby '2.2.5'
+# @NB gem used to encode and decode OAuth Token
+gem 'jwt'
+# helper between models and controllers used to authenticate users
+gem 'simple_command'
+# @NB gem used to make payments by using paypal (sandbox)
+gem 'paypal-sdk-rest'
 
 # Use rspec
 group :development, :test do

@@ -1,8 +1,8 @@
-class CreateOrders < ActiveRecord::Migration[5.0]
+class CreatePurchases < ActiveRecord::Migration[5.0]
   def change
-    create_table :orders do |t|
+    create_table :purchases do |t|
 
-      t.integer :order_number
+      t.integer :purchase_number
       t.string :payment_method
       t.decimal :total_price
 
@@ -11,4 +11,3 @@ class CreateOrders < ActiveRecord::Migration[5.0]
     end
   end
 end
-

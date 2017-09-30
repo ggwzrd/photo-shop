@@ -1,6 +1,6 @@
 class LineItem < ApplicationRecord
   belongs_to :product
-  belongs_to :order
+  belongs_to :purchase
 
   # Amount should be present and should be above 0
   validates :amount, presence: true
