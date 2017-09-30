@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :photos, only: [:destroy]
 
   resources :products
-  resources :orders, only: [:new, :create, :index, :show]
+  resources :purchases, only: [:new, :create, :index, :show]
 
   resources :shopping_carts do
     collection do

@@ -1,11 +1,11 @@
 <div class="container">
     <div class="col-sm-12">
-    <% if @orders != [] %>
-        <% @orders.each do |order| %>
-        <div class="bs-calltoaction bs-calltoaction-default <%= order %>">
+    <% if @purchases != [] %>
+        <% @purchases.each do |purchase| %>
+        <div class="bs-calltoaction bs-calltoaction-default <%= purchase %>">
             <div class="row">
                 <div class="col-md-9 cta-contents">
-                    <h1 class="cta-title"><%= link_to "##{order.order_number} #{order.payment_method}, #{number_to_currency order.get_total, unit: '€'}", order %></h1>
+                    <h1 class="cta-title"><%= link_to "##{purchase.purchase_number} #{purchase.payment_method}, #{number_to_currency purchase.get_total, unit: '€'}", purchase %></h1>
                     <div class="cta-desc">
                     </div>
                 </div>
@@ -15,8 +15,7 @@
         </div>
         <% end %>
   <% else %>
-    <h1>You don't have any orders yet</h1>
+    <h1>You don't have any purchases yet</h1>
   <% end %>
     </div>
 </div>
-

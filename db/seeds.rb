@@ -3,7 +3,7 @@
 Photo.delete_all
 
 LineItem.delete_all       # this is important!
-Order.delete_all          # this is important!
+Purchase.delete_all          # this is important!
 
 Category.delete_all
 Product.delete_all
@@ -72,5 +72,5 @@ product12 = Product.create ( {name: "Print 75x50 Framed Sirver", price: 9.00, de
 line_item1 = LineItem.create ( {amount: 1, product: product1} )
 line_item2 = LineItem.create ( {amount: 2, product: product2} )
 
-# Create a fake order
-order1 = Order.create ( { order_number: 1, payment_method: Order::PAYMENT_METHODS[0], user: buyer1, line_items: [line_item1, line_item2] } )
+# Create a fake purchase
+purchase1 = Purchase.create ( { purchase_number: 1, payment_method: Purchase::PAYMENT_METHODS[1], user: buyer1, line_items: [line_item1, line_item2] } )

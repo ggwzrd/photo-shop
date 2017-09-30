@@ -46,9 +46,9 @@ Licensed under MIT
                             </a>
                         </li>
                         <li>
-                            <a href="<%= orders_path %>">
+                            <a href="<%= purchases_path %>">
                                 <i class="glyphicon glyphicon-th-list"></i>
-                                Your Orders
+                                Your purchases
                             </a>
                         </li>
                         <li>
@@ -65,7 +65,7 @@ Licensed under MIT
         </div>
         <div class="col-md-9">
             <div class="profile-content">
-              <% if @profile.user.orders && @profile.user.orders != [] %>
+              <% if @profile.user.purchases && @profile.user.purchases != [] %>
                 <%= render 'list_lessons' %>
               <% else %>
                 <h1> You don't have any lesson </h1>
