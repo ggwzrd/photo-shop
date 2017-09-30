@@ -17,7 +17,6 @@ class AuthenticateUser
 
   def user
     user = User.find_by_email(@email)
-    debugger
     return user if user && user.valid_password?(@password)
 
     errors.add :user_authentication, 'invalid credentials'
