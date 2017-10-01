@@ -36,9 +36,9 @@ profile1 = Profile.create({first_name:"Irene", last_name:"Tocino", bio: Faker::H
 profile1 = Profile.create({first_name:"Marco", last_name:"Lavini", bio: Faker::Hipster.paragraph, user: seller2, photo: photo_profile_4 })
 profile1 = Profile.create({first_name:"Luca", last_name:"Pirró", bio: Faker::Hipster.paragraph, user: seller3, photo: photo_profile_5 })
 # Create some categories
-category1 = Category.create ( {name: "Wood Framed"} )
-category2 = Category.create ( {name: "Plastic Framed"} )
-category3 = Category.create ( {name: "Canvas Only"} )
+category1 = Category.create ( {name: "Wood"} )
+category2 = Category.create ( {name: "White"} )
+category3 = Category.create ( {name: "Black"} )
 
 # Create some photos
 photo1 = Photo.create(remote_image_url: "http://ognature.com/wp-content/uploads/2017/05/sunset-birds-rays-sky-sundown-lovely-pier-clouds-nature-nice-pretty-beautiful-crystal-glow-sun-reflection-clear-dock-wallpaper-desert-1366x768.jpg")

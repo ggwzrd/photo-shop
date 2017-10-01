@@ -1,31 +1,31 @@
 <main class="wrapper">
-    <a href="<%= category_path(@category.id) %>" class="divider <%= @category.name.downcase %>">
-        <h1><%= @category.name %></h1>
-    </a>
-    <div class="col-sm-12">
-        <% @products.each do |product| %>
-        <div class="col-lg-3 col-sm-6 products">
-
+  <div class="col-sm-12">
+      <% @products.each do |product| %>
+      <div class="col-lg-3 col-sm-6 products">
+          <a href="<%= product_path(product.id) %>">
             <div class="card hovercard">
                 <img src="<%= product.photos[0].image %>" class="cardheader">
-                <div class="avatar">
-                    <%= profile_photo(product.user.profile) %>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a href="<%= product_path(product.id) %>"><%= product.name %></a>
-                    </div>
-                    <div class="desc"><%= product.user.profile ? product.user.profile.full_name : product.user.email %></div>
-                    <div class="desc"><%= number_to_currency(product.price, unit: "€") %></div>
-                </div>
-                <div class="bottom">
-                    <% product.categories.each do |category| %>
-                    <%= link_to "", category, class: "btn btn-default #{category.name.downcase}" %>
-                    <% end %>
+                <div class="photo-details-container">
+                  <div class="avatar">
+                      <%= profile_photo(product.user.profile) %>
+                  </div>
+                  <div class="info">
+                      <div class="title">
+                          <a href="<%= product_path(product.id) %>"><%= product.name %></a>
+                      </div>
+                      <div ><b><%= product.user.profile ? product.user.profile.full_name : product.user.email %></b></div>
+                      <div class="desc"><%= number_to_currency(product.price, unit: "€") %></div>
+                  </div>
+                  <div class="bottom">
+                      <% product.categories.each do |category| %>
+                      <%= link_to "", category, class: "btn btn-default #{category.name.downcase}" %>
+                      <% end %>
+                  </div>
                 </div>
             </div>
+          </a>
 
-        </div>
-        <% end %>
-    </div>
+      </div>
+      <% end %>
+  </div>
 </main>
