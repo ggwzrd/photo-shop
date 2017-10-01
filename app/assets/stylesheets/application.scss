@@ -1,11 +1,17 @@
+//  *= require animate.min
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "base/variables";
+@import "base/structure";
+
+@import "vertical-carousel";
 
 @import "categories";
 @import "photos";
 @import "products";
 
-@import "custom";
 @import "profiles";
 
 @import "shopping_carts";
