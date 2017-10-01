@@ -1,38 +1,94 @@
-<%= render 'shared/search_box' %>
-<%= render 'shared/banner' %>
-<main class="wrapper">
-    <!-- itinerating all the categories -->
-        <% @categories.each do |category| %>
-        <!-- printing the category name as title  -->
-        <a href="<%= category_path(category.id) %>" class="divider <%= category.name.downcase %>">
-            <h1><%= category.name %></h1>
-        </a>
-        <div class="category wrapper">
-            <!-- select the products that include the current category -->
-            <% category.products.each do |product| %>
-            <div class="col-lg-3 col-sm-6 products">
+<section class="slide-wrapper">
+    <div class="container">
+        <div id="myCarousel" class="carousel slide">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+             </ol>
 
-                <div class="card hovercard">
-                    <img src="<%= product.photos[0].image %>" class="cardheader">
-                    <div class="avatar">
-                        <%= profile_photo(product.user.profile) %>
-                    </div>
-                    <div class="info">
-                        <div class="title">
-                            <a href="<%= product_path(product.id) %>"><%= product.name %></a>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item item1 active">
+                    <div class="fill" style="background-color:#222;">
+                        <div class="inner-content">
+                            <div class="carousel-img">
+                              <iframe src="https://player.vimeo.com/video/185054030" class="embed-responsive-item videoTarget img img-responsive" frameborder="0"></iframe>
+                            </div>
+                            <div class="carousel-desc">
+
+                                <h2>Print your Emotions</h2>
+                                <p>It has never been easier to print your favourite pictures. <br/>
+                                  Now in only 3 step you can have a can have a full memory printed in your favourite format.
+                                  Choose between: </p>
+
+                            </div>
+                            <i class="scroll-down-arrow glyphicon glyphicon-chevron-down animated infinite"></i>
+
                         </div>
-                        <div class="desc"><%= product.user.profile ? product.user.profile.full_name : product.user.email %></div>
-                        <div class="desc"><%= number_to_currency(product.price, unit: "€") %></div>
                     </div>
-                    <div class="bottom">
-                      <% product.categories.each do |category| %>
-                      <%= link_to "", category, class: "btn btn-default #{category.name.downcase}" %>
-                      <% end %>
+                </div>
+                <div class="item item2">
+                    <div class="fill"  style=" background: url(<%= asset_path("wood-pattern-background.jpg") %>)">
+                        <div class="inner-content">
+                            <div class="carousel-img">
+                                <img src="<%= asset_path("wood-frame.png") %>" alt="Wood Frame" title="Wood Frame" class="img img-responsive" />
+                            </div>
+                            <div class="carousel-desc">
+
+                                <h2>Wooden Frames</h2>
+                                <a href="<%=  category_path(1)%>">Check them out</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item item3">
+                    <div class="fill" style="background-color:#000;">
+                        <div class="inner-content">
+                            <div class="col-md-6 text-left">
+                                <div class="carousel-desc">
+
+                                    <h2>Black Frame</h2>
+                                    <a href="<%=  categories_path(2)%>">Check them out</a>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="carousel-img">
+                                    <img src="<%= asset_path("black-frame.png") %>" alt="Black Frame" title="Black Frame" class="img img-responsive" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item item4">
+                    <div class="fill" style="background-color:#FFF; color: black;">
+                        <div class="inner-content">
+                            <div class="col-md-6">
+                                <div class="carousel-img">
+                                    <img src="<%= asset_path("white-frame.png") %>" alt="White Frame" title="White Frame" class="img img-responsive" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 text-left">
+                                <div class="carousel-desc" style=" color: black;">
+
+                                    <h2>White Frame</h2>
+                                    <a href="<%= categories_path(3) %>">Check them out</a>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
-            <% end %>
         </div>
-        <% end %>
-</main>
+    </div>
+</section>

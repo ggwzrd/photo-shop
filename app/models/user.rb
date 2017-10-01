@@ -12,4 +12,12 @@ class User < ApplicationRecord
     profile.present?
   end
 
+  def seller?
+    self.role == "seller"
+  end
+
+  def buyer?
+    self.role == "buyer"
+  end
+
 end
