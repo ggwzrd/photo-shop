@@ -39,24 +39,20 @@ Licensed under MIT
                             </a>
                         </li>
                         <% if current_user.profile == @profile %>
-                        <li>
-                            <a href="<%= edit_profile_path(current_user.profile) %>">
-                                <i class="glyphicon glyphicon-edit"></i>
-                                Edit Profile
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<%= purchases_path %>">
-                                <i class="glyphicon glyphicon-th-list"></i>
-                                Your purchases
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<%= new_product_path %>">
-                                <i class="glyphicon glyphicon-plus"></i>
-                                Add product
-                            </a>
-                        </li>
+                          <li>
+                              <a href="<%= edit_profile_path(current_user.profile) %>">
+                                  <i class="glyphicon glyphicon-edit"></i>
+                                  Edit Profile
+                              </a>
+                          </li>
+                          <% if current_user.seller? %>
+                            <li>
+                                <a href="<%= new_product_path %>">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                    Add product
+                                </a>
+                            </li>
+                            <% end %>
                         <% end %>
                     </ul>
                 </div>
@@ -68,7 +64,7 @@ Licensed under MIT
               <% if @profile.user.purchases && @profile.user.purchases != [] %>
                 <%= render 'list_lessons' %>
               <% else %>
-                <h1> You don't have any lesson </h1>
+                <h4> You didn't purchase any picture yet </h4>
               <% end %>
             </div>
         </div>

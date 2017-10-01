@@ -1,0 +1,37 @@
+// basic colors
+$red: rgb(187, 31, 38) !default;
+$green: rgb(100, 205, 90) !default;
+$blue: rgb(46, 102, 212) !default;
+$white: #FFF !default;
+$black: #000 !default;
+
+// greys
+$light-gray: #f9f9f9 !default;
+$middle-gray: #CCC !default;
+$dark-gray: #333333 !default;
+
+// company colors
+$primary-color: #f68428 !default;
+$primary-color-light: #ffb559 !default;
+$primary-color-dark: #bd5600 !default;
+$secondary-color: #ffb559 !default;
+$secondary-color-light: #ffe789 !default;
+$secondary-color-dark: #c8852a !default;
+
+$programs-color: #a8c5e1 !default;
+
+// structure
+$border-radius: 3px !default;
+
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
