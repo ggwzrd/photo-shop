@@ -106,6 +106,12 @@
   padding: 20px;
   background: #fff;
   min-height: 460px;
+  max-height: 80vh;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 

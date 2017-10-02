@@ -57,9 +57,9 @@ $(function(){
 				});
 			}
 		});
-			 $('.item1.active img').animateCss('slideInDown');
 			 $('.item1.active h2').animateCss('zoomIn');
 			 $('.item1.active p').animateCss('fadeIn');
+			 $('.item1.active h3').animateCss('fadeIn');
 
 });
 
@@ -81,6 +81,7 @@ $(function(){
 
 		$('.item1 h2').animateCss('zoomIn');
 		$('.item1 p').animateCss('fadeIn');
+		$('.item1 h3').animateCss('fadeIn');
 
 		$('.item2 img').animateCss('zoomIn');
 		$('.item2 h2').animateCss('swing');

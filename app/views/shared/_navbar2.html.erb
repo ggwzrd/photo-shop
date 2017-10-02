@@ -27,13 +27,9 @@
                       <% categories = Category.all %>
                       <% categories.each do |category| %>
                         <li>
-                            <a href="<%= category_path(category.id) %>"><%= category.name %></a>
+                            <a href="<%= category_path(category.id) %>"><%= category.name %> Frames</a>
                         </li>
                       <% end %>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="<%= categories_path %>">All Categories</a>
-                        </li>
                         <li class="divider"></li>
                         <li>
                             <a href="<%= products_path %>">All Products</a>
@@ -53,7 +49,7 @@
 
                     <ul class="dropdown-menu">
                       <% if current_user.has_profile? %>
-                        <li><%= link_to "Show Profile", current_user.profile %></li>
+                        <li><%= link_to "Show Profile", profile_path(current_user.profile.id) %></li>
                         <li role="separator" class="divider"></li>
                         <li><%= link_to "Edit Profile", edit_profile_path(current_user.profile) %></li>
                       <% else %>
@@ -78,16 +74,20 @@
                         </a>
                         <ul class="shopping_cart dropdown-menu" id="shopping_cart" role="menu">
                           <% if session[:shopping_cart] != {} && session[:shopping_cart] %>
+                            <% total_price = 0 %>
                             <% session[:shopping_cart].each do |id, amount| %>
                               <% product = Product.where(id: id).first %>
                               <% if product.present? %>
                                 <li id="line-<%= id %>">
-                                    <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> <%= link_to("x", '#', class: "btn btn-default delete-item", data: { confirm: "Are you sure?" }) %> </a>
+                                    <a href="<%= product_path(product.id) %>"><%= product.name %>: <%=  number_to_currency(product.price * amount.to_i, unit: '€') %> <%= link_to("x", '#', class: "btn btn-danger delete-item", style: "max-width: 80%;", data: { confirm: "Are you sure?" }) %> </a>
                                 </li>
                                 <li class="divider"></li>
+                                <% total_price += product.price %>
                               <% end %>
                             <% end %>
-                            <li id="line-total"> <a><strong>Total Price</strong> <strong class="total">€</strong></a> </li>
+                            <li id="line-total"> <a><strong>Total Price</strong> <strong class="total">€ <%= total_price %></strong></a> </li>
+                            <li class="divider"></li>
+                            <li> <a class="btn btn-primary" style="max-width: 80%;" href="<%= shopping_carts_path %>">Checkout</a> </li>
                           <% else %>
                             <li id="line-empty">
                                 <a href="#">Empty</a>

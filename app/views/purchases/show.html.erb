@@ -1,18 +1,33 @@
-<div class="container">
-    <div class="col-sm-12">
-      <h1 class="cta-title">purchase # <%= @purchase.purchase_number %></h1>
-        <% @line_items.each do |li| %>
-            <div class="row">
-                <div class="col-md-9 cta-contents">
-                  <h1 class="cta-title"><%= "#{li.amount} #{li.product.name} #{number_to_currency li.get_total, unit: '€'}" %></h1>
-                    <div class="cta-desc">
+<div class="access panel panel-default">
+  <div class="panel-heading">
+      <div class="panel-title text-center">Purchase Confirmation</div>
+  </div>
+
+  <div class="panel-body">
+    <div class="container">
+        <div class="col-sm-12">
+          <h1 class="cta-title">purchase # <%= @purchase.purchase_number %></h1>
+            <% @line_items.each do |li| %>
+                <div class="row">
+                    <div class="col-md-9 cta-contents">
+                      <h4 class="cta-title" style="color: #5d5b5b; display: inline-block;"><%= "#{li.amount} #{li.product.name}" %></h4>
+                      <h4 class="cta-title" style="color: #5d5b5b; display: inline-block; float:right;"><%= number_to_currency li.get_total, unit: '€' %></h4>
                     </div>
                 </div>
-                <div class="col-md-3 cta-button">
-                </div>
+            <% end %>
+            <div class="row">
+              <div class="col-md-9 cta-contents">
+                <h4 class="cta-title" style="color: #5d5b5b; display: inline-block;">Total amount: </h4>
+                <h4 class="cta-title" style="color: #5d5b5b; display: inline-block; float:right;"><%= number_to_currency @purchase.total_price, unit: '€' %></h4>
+              </div>
             </div>
-        <% end %>
+            <div class="row">
+              <div class="col-md-9 cta-contents">
+                <h4 class="cta-title" style="color: #5d5b5b; display: inline-block;">Paid by: </h4>
+                <img src="https://fwab.org/wp-content/uploads/Paypal-logo-1.png" class="cta-title" style="color: #5d5b5b; display: inline-block; float:right; width: 100px; transform: translateX(25%);" />
+              </div>
+            </div>
+        </div>
     </div>
+  </div>
 </div>
-
-

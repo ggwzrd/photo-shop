@@ -18,6 +18,7 @@ function removeItem(event) {
     event.preventDefault();
     $item = $(event.toElement).parent();
     itemId = $($item).attr('id').slice(5);
+    notify(false);
     deleteCart(parseInt(itemId));
 }
 
@@ -68,17 +69,37 @@ function deleteCart(itemId) {
       });
 }
 
+function notify(positive) {
+  if (positive) {
+    $('.shopping-cart-notification').addClass('positive');
+    $('.shopping-cart-notification').text('Product added');
+    $('.shopping-cart-notification').fadeIn();
+  } else {
+    $('.shopping-cart-notification').addClass('negative');
+    $('.shopping-cart-notification').text('Product removed');
+    $('.shopping-cart-notification').fadeIn();
+  }
+  setTimeout(function () {
+    $('.shopping-cart-notification').fadeOut();
+    $('.shopping-cart-notification').text('')
+    positive ? $('.shopping-cart-notification').removeClass('positive')
+      : $('.shopping-cart-notification').removeClass('negative');
+  }, 5000);
+}
+
 function addItem(event){
   event.preventDefault();
   itemId =  parseInt($('.card').attr('id'));
   amount = parseInt($('#amount').val());
+  notify(true);
+  updateTotalPrice(itemId);
   addToCart(itemId, amount);
 }
 
 function updateCart(item){
   if(item){
     $('#line-empty').remove();
-    item = $('<li id="line-'+item.id+'">').append($('<a>').text(item.name+": €"+item.price).addClass('new')).append($('<a data-confirm="are you sure?">').text("x").addClass('btn btn-default delete-item'));
+    item = $('<li id="line-'+item.id+'">').append($('<a>').text(item.name+": €"+item.price).addClass('new')).append($('<a class="btn btn-danger delete-item" data-confirm="are you sure?">').text("x").addClass('btn btn-default delete-item'));
     item.insertBefore($('#line-total'));
     $('<li>').addClass('divider').insertAfter(item);
   }else {

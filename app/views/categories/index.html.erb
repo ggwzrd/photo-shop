@@ -9,7 +9,7 @@
                 <li data-target="#myCarousel" data-slide-to="3"></li>
              </ol>
 
-
+            <i class="scroll-down-arrow glyphicon glyphicon-chevron-down animated infinite"></i>
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item item1 active">
@@ -21,13 +21,13 @@
                             <div class="carousel-desc">
 
                                 <h2>Print your Emotions</h2>
-                                <p>It has never been easier to print your favourite pictures. <br/>
-                                  Now in only 3 step you can have a can have a full memory printed in your favourite format.
-                                  Choose between: </p>
+                                <p style="margin-top: 15px;">It has never been easier to print your favourite pictures. <br/>
+                                  In only 3 step you can have a can have a full memory printed in your favourite format.</p>
+                                <br />
+                                <br />
+                                <h3>Scroll down to see more</h3>
 
                             </div>
-                            <i class="scroll-down-arrow glyphicon glyphicon-chevron-down animated infinite"></i>
-
                         </div>
                     </div>
                 </div>
@@ -49,21 +49,20 @@
                 <div class="item item3">
                     <div class="fill" style="background-color:#000;">
                         <div class="inner-content">
-                            <div class="col-md-6 text-left">
-                                <div class="carousel-desc">
+                          <div class="col-md-6 frame-image">
 
-                                    <h2>Black Frame</h2>
-                                    <a href="<%=  categories_path(2)%>">Check them out</a>
+                              <div class="carousel-img">
+                                  <img src="<%= asset_path("black-frame.png") %>" alt="Black Frame" title="Black Frame" class="img img-responsive" />
+                              </div>
+                          </div>
+                          <div class="col-md-6 text-left">
+                              <div class="carousel-desc">
 
-                                </div>
-                            </div>
+                                  <h2>Black Frames</h2>
+                                  <a href="<%=  category_path(2)%>">Check them out</a>
 
-                            <div class="col-md-6">
-
-                                <div class="carousel-img">
-                                    <img src="<%= asset_path("black-frame.png") %>" alt="Black Frame" title="Black Frame" class="img img-responsive" />
-                                </div>
-                            </div>
+                              </div>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -79,8 +78,8 @@
                             <div class="col-md-6 text-left">
                                 <div class="carousel-desc" style=" color: black;">
 
-                                    <h2>White Frame</h2>
-                                    <a href="<%= categories_path(3) %>">Check them out</a>
+                                    <h2>White Frames</h2>
+                                    <a href="<%= category_path(3) %>">Check them out</a>
 
                                 </div>
                             </div>

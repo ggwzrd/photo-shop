@@ -38,7 +38,7 @@ class ShoppingCartsController < ApplicationController
 
   def new
     session[:shopping_cart] = {params[:id] => params[:amount].to_i}
-    debugger
+
     redirect_to shopping_carts_path, notice: "Product successfully added to the Shopping cart"
   end
 

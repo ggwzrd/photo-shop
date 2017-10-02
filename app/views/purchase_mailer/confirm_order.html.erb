@@ -1,0 +1,6 @@
+<div class="container">
+  <h1> Order n: <%= @order.purchase_number %> </h1>
+  <%= @order.description %>
+
+  <%= link_to "Check out your Orders", "#{@user.profile.present? ? "http://localhost:3000/profile/#{@user.profile.id}" : "http://localhost:3000/profile/new"}", class: "btn btn-primary" %>
+</div>

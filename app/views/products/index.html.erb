@@ -1,28 +1,30 @@
 <main class="wrapper">
     <% if @products != [] %>
       <% @products.each do |product| %>
-        <div class="col-lg-3 col-sm-6 products">
-
+      <div class="col-lg-3 col-sm-6 products">
+          <a href="<%= product_path(product.id) %>">
             <div class="card hovercard">
                 <img src="<%= product.photos[0].image %>" class="cardheader">
-                <div class="avatar">
-                    <img alt="" src="<%= !product.user.profile.nil?  ? product.user.profile.photo : "http://res.cloudinary.com/dgmqizxd0/image/upload/v1476977556/Incognito_Search_Large_Logo_tz.jpg" %>">
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a href="<%= product_path(product.id) %>"><%= product.name %></a>
-                    </div>
-                    <div class="desc"><%= product.user.profile ? product.user.profile.full_name : product.user.email %></div>
-                    <div class="desc"><%= number_to_currency(product.price, unit: "€") %></div>
-                </div>
-                <div class="bottom">
-                  <% product.categories.each do |category| %>
-                  <%= link_to "", category, class: "btn btn-default #{category.name.downcase}" %>
-                  <% end %>
+                <div class="photo-details-container">
+                  <div class="avatar">
+                      <%= profile_photo(product.user.profile) %>
+                  </div>
+                  <div class="info">
+                      <div class="title">
+                          <a href="<%= product_path(product.id) %>"><%= product.name %></a>
+                      </div>
+                      <div ><b><%= product.user.profile ? product.user.profile.full_name : product.user.email %></b></div>
+                      <div class="desc"><%= number_to_currency(product.price, unit: "€") %></div>
+                  </div>
+                  <div class="bottom">
+                      <% product.categories.each do |category| %>
+                      <%= link_to "", category, class: "btn btn-default #{category.name.downcase}" %>
+                      <% end %>
+                  </div>
                 </div>
             </div>
-
-        </div>
+          </a>
+      </div>
       <% end %>
     <% else %>
 

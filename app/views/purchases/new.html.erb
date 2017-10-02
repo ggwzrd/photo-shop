@@ -1,36 +1,43 @@
 <div class="main">
-  <div class="shopping-cart-container">
-    <% if @shopping_cart %>
-      <%= form_for @purchase do |f| %>
-        <div class="shopping-cart">
-          <div class="line">
-            <span class="name">Product</span>
-            <div class="amount-wrapper">
-              <span class="amount">Amount</span>
-              <div class="inc-dec">
-              </div>
-            </div>
-            <span class="total">Price</span>
-          </div>
-          <% @purchase.line_items.each do |li| %>
-            <div class="line">
-              <span class="name"><%= li.product.name %></span>
-              <div class="amount-wrapper">
-                <span class="amount"><%= li.amount %></span>
-                <div class="inc-dec">
+  <div class="access panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title text-center">Review Order</div>
+    </div>
+
+    <div class="panel-body">
+      <div class="shopping-cart-container">
+        <% if @shopping_cart %>
+          <%= form_for @purchase do |f| %>
+            <div class="shopping-cart">
+              <div class="line">
+                <span class="name">Product</span>
+                <div class="amount-wrapper">
+                  <span class="amount">Amount</span>
+                  <div class="inc-dec">
+                  </div>
                 </div>
+                <span class="total">Price</span>
               </div>
-              <span class="total"><%= "#{number_to_currency li.product.price * li.amount, unit: '€'}" %></span>
+              <% @purchase.line_items.each do |li| %>
+                <div class="line">
+                  <span class="name"><%= li.product.name %></span>
+                  <div class="amount-wrapper">
+                    <span class="amount"><%= li.amount %></span>
+                    <div class="inc-dec">
+                    </div>
+                  </div>
+                  <span class="total"><%= "#{number_to_currency li.product.price * li.amount, unit: '€'}" %></span>
+                </div>
+              <% end %>
+              <div class="buttons">
+                <%= f.submit "Submit purchase", class: "btn btn-primary" %>
+              </div>
             </div>
           <% end %>
-          <div class="buttons">
-            <%= f.submit "Submit purchase", class: "btn btn-primary" %>
-          </div>
-        </div>
-      <% end %>
-    <% else %>
-      <h3>No items in purchase yet</h3>
-    <% end %>
+        <% else %>
+          <h3>No items in purchase yet</h3>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-

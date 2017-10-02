@@ -37,6 +37,7 @@ class Purchase < ApplicationRecord
         :description =>  self.description }]})
 
     if @payment.create
+      self.notify_via_email
       @payment.id     # Payment Id
     else
       @payment.error  # Error Hash
@@ -50,6 +51,10 @@ class Purchase < ApplicationRecord
     end
     purchase_description += "______________________________________________________"
     purchase_description += "Total Price: #{self.get_total}"
+  end
+
+  def notify_via_email
+    PurchaseMailer.confirm_order(self).deliver_now
   end
 
   private

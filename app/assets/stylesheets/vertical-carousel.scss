@@ -9,6 +9,25 @@
   }
   .container{padding:0px;}
 
+  .scroll-down-arrow{
+    position: fixed;
+    top: 93%;
+    left: 49%;
+    transform: translateX(-50%);
+    height: 24px;
+    width: 24px;
+    font-size: 34px;
+    text-shadow: 0 0 2px #333;
+    cursor: pointer;
+    animation: bounce 1s;
+    color: white;
+    z-index: 999;
+
+    @media only screen and (max-width: 750px) {
+      left: 47%;
+    }
+  }
+
   .item1 {
     .carousel-img {
       width: 110vw;
@@ -25,16 +44,21 @@
       }
     }
 
-    .scroll-down-arrow{
-      position: absolute;
-      top: 85%;
-      left: 50vw;
-      height: 24px;
-      width: 24px;
-      font-size: 34px;
-      cursor: pointer;
-      animation: bounce 2s;
-      color: white;
+    @media only screen and (max-width: 750px) {
+      .carousel-img {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        overflow: hidden;
+
+        iframe {
+          width: 100%;
+          height: auto;
+        }
+      }
     }
 
     .carousel-desc {
@@ -118,9 +142,10 @@
   animation-duration:2s; -webkit-animation-duration:2s; -moz-animation-duration:2s; -ms-animation-duration:2s; -o-animation-duration:2s; animation-delay:0.3s ; -webkit-animation-delay:0.3s;
   -moz-animation-delay:0.3s;-ms-animation-delay:0.3s; }
   .item .carousel-desc{color:#fff; text-align:center;}
-  .item  h2{font-size:50px; animation-delay:1.5s;animation-duration:1s; }
+  .item  h2{font-size:50px; animation-delay: .5s;animation-duration:1s; }
 
-  .item p, .item a{animation-delay:2.5s;animation-duration:1s;}
+  .item1 h3{animation-delay:3s; animation-duration:1s;}
+  .item p, .item a{animation-delay:1.5s;animation-duration:1s;}
   .item p {margin: auto; width:50%;}
 
   .item2.active .carousel-img img.animated{visibility:visible; opacity:1; transition:all 0.3s ease; animation-duration:3s; animation-delay:0.3s}
@@ -137,6 +162,7 @@
   .item3.active h2.animated{visibility:visible; opacity:1;  animation-delay:1.5s}
   .item3 a , .item3.active a{visibility:hidden; opacity:0; transition:all 5s ease; }
   .item3.active a.animated{visibility:visible; opacity:1;  animation-delay:2.5s;}
+  .item3 .frame-image{float: right;}
 
   .item4 .col-md-6{float:none; display:inline-block; vertical-align:middle; width:49%;}
 
@@ -150,6 +176,8 @@
   	.item .carousel-desc , .item.item3 .carousel-desc{text-align:center;}
   	.item .carousel-desc p, .item .carousel-desc a {width:80%;}
   	.item3 .col-md-6{width:100%; text-align:center;}
+  	.item4 .col-md-6{width:100%; text-align:center;}
+  	.item .text-left{margin-top: 15px;}
   }
   @media(max-width:768px)
   {

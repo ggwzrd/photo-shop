@@ -35,7 +35,8 @@ class PurchasesController < ApplicationController
         product = Product.find(product_id)
 	      @purchase.line_items.build(product_id: product_id, amount: amount, line_price: product.price * amount)
         total_price += product.price * amount
-      end
+      end unless @shopping_cart.blank?
+      
       @purchase[:total_price] = total_price
       @purchase[:payment_method] = Purchase::PAYMENT_METHODS[1]
       @purchase[:purchase_number] = 2.times.map{ 20 + Random.rand(11) }.join.to_i
