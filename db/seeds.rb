@@ -17,8 +17,8 @@ ActiveRecord::Base.connection.execute("DELETE  from categories_products")
 
 # Create some users
 buyer1 = User.create( {name: "Giulio", email: "giulio@gmail.com", role: "buyer", password: "abcd1234"} )
-buyer2 = User.create( {name: "Armando", email: "pim@gmail.com", role: "buyer", password: "abcd1234"} )
-seller1 = User.create( {name: "Irene", email: "miriam@gmail.com", role: "seller", password: "abcd1234"} )
+buyer2 = User.create( {name: "Armando", email: "armando@gmail.com", role: "buyer", password: "abcd1234"} )
+seller1 = User.create( {name: "Irene", email: "irene@gmail.com", role: "seller", password: "abcd1234"} )
 seller2 = User.create( {name: "Marco", email: "marco@gmail.com", role: "seller", password: "abcd1234"} )
 seller3 = User.create( {name: "Luca", email: "luca@gmail.com", role: "seller", password: "abcd1234"} )
 
